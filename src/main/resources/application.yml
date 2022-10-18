@@ -1,0 +1,129 @@
+##########################################################################################
+# 공통
+##########################################################################################
+project:
+  name: first-api-server
+  description: API 서버
+
+server:
+  servlet:
+    session:
+      timeout: 1800
+    encoding:
+      charset: UTF-8
+      enabled: true
+  tomcat:
+    basedir: ${app.home}
+    accesslog:
+      directory: ${app.home}/logs
+      enabled: true
+      pattern: "%h %l %u %t \"%r\" %s %b"
+    max-connections: 1000
+    min-spare-threads: 10
+    max-threads: 40
+  error:
+    whitelabel:
+      enabled: false
+      
+spring:
+  application:
+    name: ${project.name}
+    description: ${project.description}
+    version: 1.0.0
+    locale-resolver: cookie
+    log-appenders:
+      - console
+      - file
+  pid:
+    file: ${app.home}/bin/shutdown.pid
+  web:
+    resources:
+        add-mappings: false 
+
+############################################################################
+# objectmapper properties
+  jackson:
+    date-format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+
+############################################################################
+# Message properties
+#  messages:
+#    basename: messages/message,
+#              messages/error-message,
+#              messages/validation-message,
+#              messages/error-message,
+#              messages/validation-message,
+#              messages/swagger-message,
+#              messages/swagger-example
+
+
+############################################################################
+# Mybatis propperties
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  check-config-location: true
+  mapper-locations : classpath*:mapper/**/*.xml
+  
+
+############################################################################
+# Pagehelper propperties
+pagehelper:
+  helperDialect: MsSQL
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+############################################################################
+# Log properties
+logging:
+  file:
+    name: ${app.home}/logs/first-api-service.log
+  config: "classpath:logback-spring.xml"
+  pattern:
+    console: "%d{HH:mm:ss.SSS} %-5level %X{MDC.REQUEST_ID} %-15logger{0} - %msg%n%rEx{full,
+                Java.lang.reflect.Method,
+                org.apache.catalina,
+                org.springframework.aop,
+                org.springframework.security,
+                org.springframework.transaction,
+                org.springframework.web,
+                org.springframework.test,
+                org.springframework.mock,
+                org.junit,
+                sun.reflect,
+                net.sf.cglib,
+                CGLIB,
+                java.lang.Thread,
+                java.util.concurrent,
+                org.apache.coyote,
+                org.apache.tomcat,
+                javax.servlet.http.HttpServlet
+                com.zaxxer.hikari.pool
+                }"
+    file: "%d{HH:mm:ss.SSS} %-5level %X{MDC.REQUEST_ID} %-15logger{0} - %msg%n"
+  logback:
+    rollingpolicy:
+      file-name-pattern: "${LOG_FILE}.%d{yyyy-MM-dd}.%i.gz"
+      max-file-size: 100MB
+      max-history: 365
+ 
+management:
+  metrics:
+    tags:
+      application: ${spring.application.name}
+  endpoints:
+    metrics:
+      enabled: true
+    prometheus:
+      enable: true
+    web:
+      exposure:
+        include: "*"
+  health:
+    diskspace:
+      enabled: false
+    db:
+      enabled: false
+  endpoint:
+      info:
+        enabled: true  

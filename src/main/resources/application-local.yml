@@ -1,0 +1,34 @@
+##########################################################################################
+# [ Local 서버 프로파일 ]
+##########################################################################################
+server:
+  port: 9090
+
+spring:
+  jackson:
+    serialization:
+      indent-output: true
+
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=master;encrypt=false
+    username: sa
+    password: "Rnfkehfl1!"
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 5
+      connection-timeout: 600000
+
+  devtools:
+    restart:
+      enabled : true
+      livereload:
+        enabled: true
+
+
+############################################################################
+# Security properties
+
+security:
+  basic:
+    enabled: false

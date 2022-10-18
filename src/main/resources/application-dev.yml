@@ -1,0 +1,29 @@
+##########################################################################################
+# [ 개발 서버 프로파일 ]
+##########################################################################################
+server:
+  port: 8080
+  tomcat:
+    accesslog:
+      directory: ${app.home}/logs/firstApiServer
+
+spring:
+  jackson:
+    serialization:
+      indent-output: true
+
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=master
+    username: sa
+    password: "0000"
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 50
+      connection-timeout: 600000
+
+############################################################################
+# Log properties
+logging:
+  file:
+    name: ${app.home}/logs/firstApiServer/first-api-service.log
