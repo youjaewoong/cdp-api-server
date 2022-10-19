@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="first.api.server.dao.SampleMapper">
+<mapper namespace="first.api.server.api.mapper.SampleMapper">
 
-	<resultMap id="sampleResponse" type="first.api.server.model.SampleResponse" autoMapping="true"/>
+	<resultMap id="sampleResponse" type="first.api.server.api.model.SampleResponse" autoMapping="true"/>
 
 	<select id="selectSample" resultMap="sampleResponse">
 		SELECT * FROM easytodo.dbo.sample

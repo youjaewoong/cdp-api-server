@@ -7,20 +7,9 @@ project:
 
 server:
   servlet:
-    session:
-      timeout: 1800
     encoding:
       charset: UTF-8
       enabled: true
-  tomcat:
-    basedir: ${app.home}
-    accesslog:
-      directory: ${app.home}/logs
-      enabled: true
-      pattern: "%h %l %u %t \"%r\" %s %b"
-    max-connections: 1000
-    min-spare-threads: 10
-    max-threads: 40
   error:
     whitelabel:
       enabled: false
@@ -68,45 +57,11 @@ mybatis:
 ############################################################################
 # Pagehelper propperties
 pagehelper:
-  helperDialect: MsSQL
+  helperDialect: mssql
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
 
-############################################################################
-# Log properties
-logging:
-  file:
-    name: ${app.home}/logs/first-api-service.log
-  config: "classpath:logback-spring.xml"
-  pattern:
-    console: "%d{HH:mm:ss.SSS} %-5level %X{MDC.REQUEST_ID} %-15logger{0} - %msg%n%rEx{full,
-                Java.lang.reflect.Method,
-                org.apache.catalina,
-                org.springframework.aop,
-                org.springframework.security,
-                org.springframework.transaction,
-                org.springframework.web,
-                org.springframework.test,
-                org.springframework.mock,
-                org.junit,
-                sun.reflect,
-                net.sf.cglib,
-                CGLIB,
-                java.lang.Thread,
-                java.util.concurrent,
-                org.apache.coyote,
-                org.apache.tomcat,
-                javax.servlet.http.HttpServlet
-                com.zaxxer.hikari.pool
-                }"
-    file: "%d{HH:mm:ss.SSS} %-5level %X{MDC.REQUEST_ID} %-15logger{0} - %msg%n"
-  logback:
-    rollingpolicy:
-      file-name-pattern: "${LOG_FILE}.%d{yyyy-MM-dd}.%i.gz"
-      max-file-size: 100MB
-      max-history: 365
- 
 management:
   metrics:
     tags:

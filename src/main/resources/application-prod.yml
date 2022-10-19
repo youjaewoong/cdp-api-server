@@ -2,25 +2,15 @@
 # [ prod 서버 프로파일 ]
 ##########################################################################################
 server:
-  port: 8080
-  tomcat:
-    accesslog:
-      directory: ${app.home}/logs/firstApiServer
+  port: 8099
   
 spring:
-
   datasource:
-    url: jdbc:sqlserver://localhost:1433;databaseName=master
+    url: jdbc:sqlserver://localhost:1433;databaseName=tempdb;encrypt=false
     username: sa
-    password: "0000"
+    password: "Rnfkehfl1!"
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
-      minimum-idle: 10
-      maximum-pool-size: 50
+      minimum-idle: 5
+      maximum-pool-size: 5
       connection-timeout: 600000
-
-############################################################################
-# Log properties
-logging:
-  file:
-    name: ${app.home}/logs/firstApiServer/first-api-service.log

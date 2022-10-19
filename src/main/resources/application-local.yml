@@ -10,7 +10,8 @@ spring:
       indent-output: true
 
   datasource:
-    url: jdbc:sqlserver://localhost:1433;databaseName=master;encrypt=false
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:sqlserver://localhost:1433;databaseName=tempdb;encrypt=false
     username: sa
     password: "Rnfkehfl1!"
     type: com.zaxxer.hikari.HikariDataSource
@@ -25,10 +26,3 @@ spring:
       livereload:
         enabled: true
 
-
-############################################################################
-# Security properties
-
-security:
-  basic:
-    enabled: false

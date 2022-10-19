@@ -23,11 +23,13 @@ ext {
 }
 
 dependencies {
+	
 	implementation 'org.springframework.boot:spring-boot-starter-batch'
 	//implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'  /* Log4JDBC */
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
@@ -45,7 +47,7 @@ dependencies {
 	implementation 'org.apache.commons:commons-lang3:3.12.0'
 	implementation 'org.apache.commons:commons-collections4:4.4'
 		
-		// gson
+	// gson
 	implementation 'com.google.code.gson:gson:2.8.0'
 	
 	// XSS
@@ -54,6 +56,14 @@ dependencies {
 	}
 	
 	implementation 'org.jsoup:jsoup:1.13.1'
+	
+	implementation 'com.github.pagehelper:pagehelper-spring-boot-starter:1.3.0'
+	
+	//implementation files('libs/jjsqlparser-3.2.jar')
+	//implementation files('libs/pagehelper-5.2.0.jar')
+	//implementation files('libs/pagehelper-spring-boot-autoconfigure-1.3.0.jar')
+	//implementation files('libs/pagehelper-spring-boot-starter-1.3.0.jar')
+	
 }
 
 dependencyManagement {
