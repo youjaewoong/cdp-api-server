@@ -10,8 +10,4 @@ public class SampleRequest extends SearchCriteria {
 	
 	private String name;
 
-	
-	public SampleRequest() {
-		super();
-	}
 }

@@ -10,9 +10,9 @@ public class PageUtils {
 	 */
 	public static final void setPageable(SearchCriteria searchCriteria) {
 		
-		// Build LIMIT(Paging) clause : limit가 1보다 작은면 전체 목록 조회
+		// limit가 1보다 작은면 전체 목록 조회
 		if(searchCriteria.getSize() > 0) {
-			com.github.pagehelper.PageHelper.startPage(searchCriteria.getPage() + 1, searchCriteria.getSize());
+			com.github.pagehelper.PageHelper.startPage(searchCriteria.getPage() , searchCriteria.getSize());
 		}
 	}
 }

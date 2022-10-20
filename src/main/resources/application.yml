@@ -27,23 +27,17 @@ spring:
     file: ${app.home}/bin/shutdown.pid
   web:
     resources:
-        add-mappings: false 
+        add-mappings: false
+  main:
+    allow-circular-references: true
+    
+  cache:
+    ehcache.config: classpath:ehcache.xml
 
 ############################################################################
 # objectmapper properties
   jackson:
     date-format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-
-############################################################################
-# Message properties
-#  messages:
-#    basename: messages/message,
-#              messages/error-message,
-#              messages/validation-message,
-#              messages/error-message,
-#              messages/validation-message,
-#              messages/swagger-message,
-#              messages/swagger-example
 
 
 ############################################################################
@@ -57,9 +51,9 @@ mybatis:
 ############################################################################
 # Pagehelper propperties
 pagehelper:
-  helperDialect: mssql
+  helper-dialect: sqlserver
   reasonable: true
-  supportMethodsArguments: true
+  support-methods-arguments: true
   params: count=countSql
 
 management:
