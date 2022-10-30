@@ -7,9 +7,7 @@ import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * 페이지가 필요없는 조회
- */
+
 @Getter
 @Setter
 public class ListResponse<T>  implements Serializable {

@@ -14,8 +14,8 @@ import first.api.server.utils.PageUtils;
 import lombok.RequiredArgsConstructor;
 
 /**
- * {@link first.api.server.model.PageResponse} 페이지 리스트
- * {@link first.api.server.model.ListResponse} 기본 리스트
+ * {@link first.api.server.model.PageResponse} page list 
+ * {@link first.api.server.model.ListResponse} total list
  */
 @Service
 @RequiredArgsConstructor

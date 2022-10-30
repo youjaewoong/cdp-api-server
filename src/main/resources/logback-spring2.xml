@@ -41,7 +41,7 @@
     <!--  SQL 결과 조합된 데이터의 table을 로그로 남긴다. -->
     <logger name="jdbc.resultsettable" level="OFF" />
     
-    <springProfile name="test">
+    <springProfile name="java">
         <root level="INFO">
             <appender-ref ref="CONSOLE" />
             <appender-ref ref="FILE" />

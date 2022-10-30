@@ -18,6 +18,7 @@ public abstract class SearchCriteria {
 	@Max(10000)
 	private int size = 10;
 	
+	
 	private boolean enablePage = true;
 
 }

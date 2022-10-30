@@ -10,7 +10,7 @@ import lombok.Setter;
 
 
 /**
- * 페이지 포함 조회
+ * 페이지 기능
  */
 @Getter
 @Setter
